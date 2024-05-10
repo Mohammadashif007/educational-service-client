@@ -63,7 +63,7 @@ const Navbar = () => {
                         </li>
                     </ul>
                 </div>
-                <Link to="/" className="text-xl font-extrabold text-3xl">Educator.org</Link>
+                <Link to="/" className="font-extrabold text-3xl text-[#124076]">Educator.org</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -103,7 +103,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end ">
-                <Link className="cursor-pointer px-4 py-1 border-2 rounded-full" to="/login">Loin/Registration</Link>
+                <Link className="cursor-pointer px-4 py-2 rounded-full bg-[#124076] text-white" to="/login">Loin/Registration</Link>
             </div>
         </div>
     );
