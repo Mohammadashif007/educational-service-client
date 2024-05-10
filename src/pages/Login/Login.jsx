@@ -1,15 +1,30 @@
 import Lottie from "lottie-react";
 import loginImage from "../../assets/lottie/login.json";
+import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm();
+
+    const onSubmit = (data) => {
+        console.log(data);
+    };
+
     return (
         <div className=" min-h-screen bg-base-200 p-10 md:flex justify-center items-center gap-28">
             <div className="mb-10">
                 <Lottie animationData={loginImage}></Lottie>
             </div>
             <div className=" w-full max-w-sm shadow-2xl  rounded-lg">
-                <p className="text-3xl font-bold text-center p-3">Please Login</p>
-                <form className="card-body">
+                <p className="text-3xl font-bold text-center p-3">
+                    Please Login
+                </p>
+                <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text font-bold">Email</span>
@@ -17,26 +32,37 @@ const Login = () => {
                         <input
                             type="email"
                             placeholder="email"
+                            {...register("email")}
                             className="input input-bordered"
                             required
                         />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-bold">Password</span>
+                            <span className="label-text font-bold">
+                                Password
+                            </span>
                         </label>
                         <input
                             type="password"
                             placeholder="password"
+                            {...register("password")}
                             className="input input-bordered"
                             required
                         />
                     </div>
                     <div className="form-control mt-6">
-                        <button className=" px-5 py-3 rounded-lg bg-[#124076] text-white">Login</button>
+                        <button className=" px-5 py-3 rounded-lg bg-[#124076] text-white">
+                            Login
+                        </button>
                     </div>
                 </form>
-                <p className="font-bold pb-5 mx-9">New here ? Please <span className="text-[#124076] cursor-pointer">Register</span></p>
+                <p className="font-bold pb-5 mx-9">
+                    New here ? Please{" "}
+                    <span className="text-[#124076] cursor-pointer">
+                        <Link to="/registration">Register</Link>
+                    </span>
+                </p>
             </div>
         </div>
     );
