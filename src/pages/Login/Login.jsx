@@ -2,17 +2,20 @@ import Lottie from "lottie-react";
 import loginImage from "../../assets/lottie/login.json";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
     const {
         register,
         handleSubmit,
         watch,
+        reset,
         formState: { errors },
     } = useForm();
 
     const onSubmit = (data) => {
         console.log(data);
+        reset();
     };
 
     return (
@@ -54,6 +57,12 @@ const Login = () => {
                     <div className="form-control mt-6">
                         <button className=" px-5 py-3 rounded-lg bg-[#124076] text-white">
                             Login
+                        </button>
+                    </div>
+                    <div className="form-control">
+                        <button className=" px-5 py-3 rounded-lg bg-[#124076] text-white flex justify-center items-center gap-2">
+                            <FaGoogle className="text-2xl" />
+                            <div>Google</div>
                         </button>
                     </div>
                 </form>
