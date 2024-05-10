@@ -69,7 +69,7 @@ const Login = () => {
                 <p className="font-bold pb-5 mx-9">
                     New here ? Please{" "}
                     <span className="text-[#124076] cursor-pointer">
-                        <Link to="/registration">Register</Link>
+                        <Link to="/registration">Registration</Link>
                     </span>
                 </p>
             </div>

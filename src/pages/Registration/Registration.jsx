@@ -24,7 +24,7 @@ const Registration = () => {
             </div>
             <div className=" w-full max-w-sm shadow-2xl  rounded-lg">
                 <p className="text-3xl font-bold text-center">
-                    Please Register Here
+                    Please Registration Here
                 </p>
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                     <div className="form-control">

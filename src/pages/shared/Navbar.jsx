@@ -70,7 +70,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end ">
-                <Link className="cursor-pointer px-4 py-2 rounded-full bg-[#124076] text-white font-semibold" to="/login">Login/Registration</Link>
+                <Link className="cursor-pointer md:px-4 px-2 py-2 rounded-full bg-[#124076] text-white font-semibold" to="/login">Login/Registration</Link>
             </div>
         </div>
     );
