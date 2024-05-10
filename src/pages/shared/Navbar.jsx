@@ -2,6 +2,15 @@ import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
 
+    const dashboardDropdown = (
+        <ul className="p-2 font-semibold">
+            <li><NavLink to="/add_service">Add Service</NavLink></li>
+            <li><NavLink to="/manage_service">Manage Service</NavLink></li>
+            <li><NavLink to="/booked_services">Booked-Services</NavLink></li>
+            <li><NavLink to="/service_to_do">Service-To-Do</NavLink></li>
+        </ul>
+    );
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -28,7 +37,7 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                        className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 font-semibold"
                     >
                         <li>
                             <NavLink to="/">Home</NavLink>
@@ -38,35 +47,14 @@ const Navbar = () => {
                         </li>
                         <li>
                             <a>Dashboard</a>
-                            <ul className="p-2">
-                                <li>
-                                    <NavLink to="/add_service">
-                                        Add Service
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/manage_service">
-                                        Manage Service
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/booked_services">
-                                        Booked-Services
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/service_to_do">
-                                        Service-To-Do
-                                    </NavLink>
-                                </li>
-                            </ul>
+                            {dashboardDropdown}
                         </li>
                     </ul>
                 </div>
                 <Link to="/" className="font-extrabold text-3xl text-[#124076]">Educator.org</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal px-1 font-semibold">
                     <li>
                         <NavLink to="/">Home</NavLink>
                     </li>
@@ -76,34 +64,13 @@ const Navbar = () => {
                     <li>
                         <details>
                             <summary>Dashboard</summary>
-                            <ul className="p-2">
-                                <li>
-                                    <NavLink to="/add_service">
-                                        Add Service
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/manage_service">
-                                        Manage Service
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/booked_services">
-                                        Booked-Services
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/service_to_do">
-                                        Service-To-Do
-                                    </NavLink>
-                                </li>
-                            </ul>
+                            {dashboardDropdown}
                         </details>
                     </li>
                 </ul>
             </div>
             <div className="navbar-end ">
-                <Link className="cursor-pointer px-4 py-2 rounded-full bg-[#124076] text-white" to="/login">Loin/Registration</Link>
+                <Link className="cursor-pointer px-4 py-2 rounded-full bg-[#124076] text-white font-semibold" to="/login">Login/Registration</Link>
             </div>
         </div>
     );
