@@ -1,10 +1,11 @@
-import { useKeenSlider } from "keen-slider/react"
-import "keen-slider/keen-slider.min.css"
-import b1 from "../../../assets/banner/b1.jpg"
-import b2 from "../../../assets/banner/b2.jpg"
-import b3 from "../../../assets/banner/b3.jpg"
-import b4 from "../../../assets/banner/b4.jpg"
-import b5 from "../../../assets/banner/b5.jpg"
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
+import b1 from "../../../assets/banner/b1.jpg";
+import b2 from "../../../assets/banner/b2.jpg";
+import b3 from "../../../assets/banner/b3.jpg";
+import b4 from "../../../assets/banner/b4.jpg";
+import b5 from "../../../assets/banner/b5.jpg";
+import b6 from "../../../assets/banner/b6.jpg";
 
 const Banner = () => {
     const [sliderRef] = useKeenSlider(
@@ -23,12 +24,13 @@ const Banner = () => {
                     if (mouseOver) return;
                     timeout = setTimeout(() => {
                         slider.next();
-                    }, 2000);
+                    }, 4000);
                 }
                 slider.on("created", () => {
                     slider.container.addEventListener("mouseover", () => {
-                        mouseOver = true;
-                        clearNextTimeout();
+                        mouseOver = false;
+                        // clearNextTimeout();
+                        nextTimeout();
                     });
                     slider.container.addEventListener("mouseout", () => {
                         mouseOver = false;
@@ -45,24 +47,157 @@ const Banner = () => {
 
     return (
         <div>
-            <div ref={sliderRef} className="keen-slider">
-                <div className="keen-slider__slide number-slide1">
-                    <img src={b1} alt="" />
+            <div ref={sliderRef} className="keen-slider h-screen relative">
+                {/* Slide 1 */}
+                <div className="keen-slider__slide number-slide1 relative">
+                    {/* Image */}
+                    <img
+                        src={b1}
+                        alt=""
+                        className="w-full h-full object-cover"
+                    />
+                    {/* Overlay */}
+                    <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white">
+                        {/* Title and Description */}
+                        <h2 className="text-3xl font-bold mb-2">
+                            Welcome to Our Educational Website
+                        </h2>
+                        <p className="text-lg text-center mb-4">
+                            Unlock the door to knowledge with our diverse range
+                            of courses. Whether you're a beginner or an expert,
+                            we have something for everyone.
+                        </p>
+                        {/* Button */}
+                        <button className="px-4 py-2 bg-[#124076] hover:bg-blue-600 text-white rounded">
+                            Learn More
+                        </button>
+                    </div>
                 </div>
-                <div className="keen-slider__slide number-slide1">
-                    <img src={b2} alt="" />
+                {/* Slide 2 */}
+                <div className="keen-slider__slide number-slide2 relative">
+                    {/* Image */}
+                    <img
+                        src={b2}
+                        alt=""
+                        className="w-full h-full object-cover"
+                    />
+                    {/* Overlay */}
+                    <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white">
+                        {/* Title and Description */}
+                        <h2 className="text-3xl font-bold mb-2">
+                            Discover a World of Knowledge
+                        </h2>
+                        <p className="text-lg text-center mb-4">
+                            Explore our vast library of resources and expand
+                            your horizons. Dive deep into subjects that
+                            fascinate you and uncover new passions.
+                        </p>
+                        {/* Button */}
+                        <button className="px-4 py-2 bg-[#124076] hover:bg-blue-600 text-white rounded">
+                            Explore
+                        </button>
+                    </div>
                 </div>
-                <div className="keen-slider__slide number-slide1">
-                    <img src={b3} alt="" />
+                {/* Slide 3 */}
+                <div className="keen-slider__slide number-slide3 relative">
+                    {/* Image */}
+                    <img
+                        src={b3}
+                        alt=""
+                        className="w-full h-full object-cover"
+                    />
+                    {/* Overlay */}
+                    <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white">
+                        {/* Title and Description */}
+                        <h2 className="text-3xl font-bold mb-2">
+                            Ignite Your Passion for Learning
+                        </h2>
+                        <p className="text-lg text-center mb-4">
+                            Embark on a journey of discovery and lifelong
+                            learning. Our platform empowers you to pursue your
+                            interests and achieve your goals.
+                        </p>
+                        {/* Button */}
+                        <button className="px-4 py-2 bg-[#124076] hover:bg-blue-600 text-white rounded">
+                            Start Learning
+                        </button>
+                    </div>
                 </div>
-                <div className="keen-slider__slide number-slide1">
-                    <img src={b4} alt="" />
+                {/* Slide 4 */}
+                <div className="keen-slider__slide number-slide4 relative">
+                    {/* Image */}
+                    <img
+                        src={b4}
+                        alt=""
+                        className="w-full h-full object-cover"
+                    />
+                    {/* Overlay */}
+                    <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white">
+                        {/* Title and Description */}
+                        <h2 className="text-3xl font-bold mb-2">
+                            Expand Your Knowledge Base
+                        </h2>
+                        <p className="text-lg text-center mb-4">
+                            Stay ahead of the curve with our comprehensive
+                            courses and cutting-edge content. Challenge yourself
+                            and grow your skills.
+                        </p>
+                        {/* Button */}
+                        <button className="px-4 py-2 bg-[#124076] hover:bg-blue-600 text-white rounded">
+                            View Courses
+                        </button>
+                    </div>
                 </div>
-                <div className="keen-slider__slide number-slide1">
-                    <img src={b5} alt="" />
+                {/* Slide 5 */}
+                <div className="keen-slider__slide number-slide5 relative">
+                    {/* Image */}
+                    <img
+                        src={b5}
+                        alt=""
+                        className="w-full h-full object-cover"
+                    />
+                    {/* Overlay */}
+                    <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white">
+                        {/* Title and Description */}
+                        <h2 className="text-3xl font-bold mb-2">
+                            Empower Your Learning Journey
+                        </h2>
+                        <p className="text-lg text-center mb-4">
+                            Our platform is designed to inspire curiosity and
+                            facilitate learning at your own pace. Join us and
+                            unleash your potential.
+                        </p>
+                        {/* Button */}
+                        <button className="px-4 py-2 bg-[#124076] hover:bg-blue-600 text-white rounded">
+                            Get Started
+                        </button>
+                    </div>
                 </div>
-
-
+                {/* Slide 6 */}
+                <div className="keen-slider__slide number-slide6 relative">
+                    {/* Image */}
+                    <img
+                        src={b6}
+                        alt=""
+                        className="w-full h-full object-cover"
+                    />
+                    {/* Overlay */}
+                    <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white">
+                        {/* Title and Description */}
+                        <h2 className="text-3xl font-bold mb-2">
+                            Join Our Community of Learners
+                        </h2>
+                        <p className="text-lg text-center mb-4">
+                            Connect with fellow learners, exchange ideas, and
+                            collaborate on projects. Together, we can achieve
+                            greatness.
+                        </p>
+                        {/* Button */}
+                        <button className="px-4 py-2 bg-[#124076] hover:bg-blue-600 text-white rounded">
+                            Join Now
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     );
