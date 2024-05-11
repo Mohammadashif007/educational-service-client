@@ -48,17 +48,14 @@ const Banner = () => {
     return (
         <div>
             <div ref={sliderRef} className="keen-slider h-screen relative">
-                {/* Slide 1 */}
                 <div className="keen-slider__slide number-slide1 relative">
-                    {/* Image */}
                     <img
                         src={b1}
                         alt=""
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover mt-10"
                     />
-                    {/* Overlay */}
+
                     <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white">
-                        {/* Title and Description */}
                         <h2 className="text-3xl font-bold mb-2">
                             Welcome to Our Educational Website
                         </h2>
@@ -67,23 +64,21 @@ const Banner = () => {
                             of courses. Whether you're a beginner or an expert,
                             we have something for everyone.
                         </p>
-                        {/* Button */}
+
                         <button className="px-4 py-2 bg-[#124076] hover:bg-blue-600 text-white rounded">
                             Learn More
                         </button>
                     </div>
                 </div>
-                {/* Slide 2 */}
+
                 <div className="keen-slider__slide number-slide2 relative">
-                    {/* Image */}
                     <img
                         src={b2}
                         alt=""
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover mt-10"
                     />
-                    {/* Overlay */}
+
                     <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white">
-                        {/* Title and Description */}
                         <h2 className="text-3xl font-bold mb-2">
                             Discover a World of Knowledge
                         </h2>
@@ -92,23 +87,21 @@ const Banner = () => {
                             your horizons. Dive deep into subjects that
                             fascinate you and uncover new passions.
                         </p>
-                        {/* Button */}
+
                         <button className="px-4 py-2 bg-[#124076] hover:bg-blue-600 text-white rounded">
                             Explore
                         </button>
                     </div>
                 </div>
-                {/* Slide 3 */}
+
                 <div className="keen-slider__slide number-slide3 relative">
-                    {/* Image */}
                     <img
                         src={b3}
                         alt=""
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover mt-10"
                     />
-                    {/* Overlay */}
+
                     <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white">
-                        {/* Title and Description */}
                         <h2 className="text-3xl font-bold mb-2">
                             Ignite Your Passion for Learning
                         </h2>
@@ -117,23 +110,21 @@ const Banner = () => {
                             learning. Our platform empowers you to pursue your
                             interests and achieve your goals.
                         </p>
-                        {/* Button */}
+
                         <button className="px-4 py-2 bg-[#124076] hover:bg-blue-600 text-white rounded">
                             Start Learning
                         </button>
                     </div>
                 </div>
-                {/* Slide 4 */}
+
                 <div className="keen-slider__slide number-slide4 relative">
-                    {/* Image */}
                     <img
                         src={b4}
                         alt=""
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover mt-10"
                     />
-                    {/* Overlay */}
+
                     <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white">
-                        {/* Title and Description */}
                         <h2 className="text-3xl font-bold mb-2">
                             Expand Your Knowledge Base
                         </h2>
@@ -142,23 +133,21 @@ const Banner = () => {
                             courses and cutting-edge content. Challenge yourself
                             and grow your skills.
                         </p>
-                        {/* Button */}
+
                         <button className="px-4 py-2 bg-[#124076] hover:bg-blue-600 text-white rounded">
                             View Courses
                         </button>
                     </div>
                 </div>
-                {/* Slide 5 */}
+
                 <div className="keen-slider__slide number-slide5 relative">
-                    {/* Image */}
                     <img
                         src={b5}
                         alt=""
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover mt-10"
                     />
-                    {/* Overlay */}
+
                     <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white">
-                        {/* Title and Description */}
                         <h2 className="text-3xl font-bold mb-2">
                             Empower Your Learning Journey
                         </h2>
@@ -167,23 +156,21 @@ const Banner = () => {
                             facilitate learning at your own pace. Join us and
                             unleash your potential.
                         </p>
-                        {/* Button */}
+
                         <button className="px-4 py-2 bg-[#124076] hover:bg-blue-600 text-white rounded">
                             Get Started
                         </button>
                     </div>
                 </div>
-                {/* Slide 6 */}
+
                 <div className="keen-slider__slide number-slide6 relative">
-                    {/* Image */}
                     <img
                         src={b6}
                         alt=""
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover mt-10"
                     />
-                    {/* Overlay */}
+
                     <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white">
-                        {/* Title and Description */}
                         <h2 className="text-3xl font-bold mb-2">
                             Join Our Community of Learners
                         </h2>
@@ -192,7 +179,7 @@ const Banner = () => {
                             collaborate on projects. Together, we can achieve
                             greatness.
                         </p>
-                        {/* Button */}
+
                         <button className="px-4 py-2 bg-[#124076] hover:bg-blue-600 text-white rounded">
                             Join Now
                         </button>
