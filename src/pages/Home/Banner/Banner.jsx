@@ -52,7 +52,7 @@ const Banner = () => {
                     <img
                         src={b1}
                         alt=""
-                        className="w-full h-full object-cover mt-10"
+                        className="w-full h-full object-cover"
                     />
 
                     <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white">
@@ -75,7 +75,7 @@ const Banner = () => {
                     <img
                         src={b2}
                         alt=""
-                        className="w-full h-full object-cover mt-10"
+                        className="w-full h-full object-cover"
                     />
 
                     <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white">
@@ -98,7 +98,7 @@ const Banner = () => {
                     <img
                         src={b3}
                         alt=""
-                        className="w-full h-full object-cover mt-10"
+                        className="w-full h-full object-cover"
                     />
 
                     <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white">
@@ -121,7 +121,7 @@ const Banner = () => {
                     <img
                         src={b4}
                         alt=""
-                        className="w-full h-full object-cover mt-10"
+                        className="w-full h-full object-cover"
                     />
 
                     <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white">
@@ -144,7 +144,7 @@ const Banner = () => {
                     <img
                         src={b5}
                         alt=""
-                        className="w-full h-full object-cover mt-10"
+                        className="w-full h-full object-cover"
                     />
 
                     <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white">
@@ -167,7 +167,7 @@ const Banner = () => {
                     <img
                         src={b6}
                         alt=""
-                        className="w-full h-full object-cover mt-10"
+                        className="w-full h-full object-cover"
                     />
 
                     <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white">

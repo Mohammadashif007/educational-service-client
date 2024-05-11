@@ -4,8 +4,17 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { FaGoogle } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const Registration = () => {
+
+    const {createUser, loginWithGoogle} = useContext(AuthContext);
+
+    const notify = () => toast.success('Account Create successfully');
+
     const {
         register,
         handleSubmit,
@@ -16,8 +25,33 @@ const Registration = () => {
 
     const onSubmit = (data) => {
         console.log(data);
-        reset();
+        createUser(data.email, data.password)
+        .then(res => {
+            const result = res.user;
+            console.log(result);
+            notify()
+            reset()
+        })
+        .catch(err => {
+            console.log(err.message);
+        })
     };
+
+
+    const handleGoogleLogin = () => {
+        loginWithGoogle()
+        .then(res => {
+            const result = res.user;
+            console.log(result);
+            notify()
+        })
+        .catch(err => {
+            console.log(err.message);
+        })
+    }
+
+
+
     return (
         <div className=" min-h-screen bg-base-200 p-10 md:flex justify-center items-center gap-28">
             <Helmet>
@@ -87,7 +121,7 @@ const Registration = () => {
                         </button>
                     </div>
                     <div className="form-control">
-                        <button className=" px-5 py-3 rounded-lg bg-[#124076] text-white flex justify-center items-center gap-2">
+                        <button onClick={handleGoogleLogin} className=" px-5 py-3 rounded-lg bg-[#124076] text-white flex justify-center items-center gap-2">
                             <FaGoogle className="text-2xl" />
                             <div>Google</div>
                         </button>
@@ -100,6 +134,7 @@ const Registration = () => {
                     </span>
                 </p>
             </div>
+            <Toaster></Toaster>
         </div>
     );
 };

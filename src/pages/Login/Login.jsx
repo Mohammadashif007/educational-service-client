@@ -1,11 +1,21 @@
 import Lottie from "lottie-react";
 import loginImage from "../../assets/lottie/login.json";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { FaGoogle } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
+import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
+    const {loginUser, loginWithGoogle} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const notify = () => toast.success('Login Successful!');
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
+
     const {
         register,
         handleSubmit,
@@ -15,9 +25,30 @@ const Login = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data);
+        loginUser(data.email, data.password)
+        .then(res => {
+            const result = res.user;
+            navigate(from)
+            notify()
+        })
+        .catch(err => {
+            console.log(err.message);
+        })
         reset();
     };
+
+    const handleGoogleLogin = () => {
+        loginWithGoogle()
+        .then(res => {
+            const result = res.user;
+            console.log(result);
+
+        })
+        .catch(err => {
+            console.log(err.message);
+        })
+    }
+   
 
     return (
         <div className=" min-h-screen bg-base-200 p-10 md:flex justify-center items-center gap-28">
@@ -64,7 +95,7 @@ const Login = () => {
                         </button>
                     </div>
                     <div className="form-control">
-                        <button className=" px-5 py-3 rounded-lg bg-[#124076] text-white flex justify-center items-center gap-2">
+                        <button onClick={handleGoogleLogin} className=" px-5 py-3 rounded-lg bg-[#124076] text-white flex justify-center items-center gap-2">
                             <FaGoogle className="text-2xl" />
                             <div>Google</div>
                         </button>
@@ -77,6 +108,7 @@ const Login = () => {
                     </span>
                 </p>
             </div>
+            <Toaster></Toaster>
         </div>
     );
 };

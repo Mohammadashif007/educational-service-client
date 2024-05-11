@@ -1,13 +1,41 @@
-import { Link, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
+import toast, { Toaster } from 'react-hot-toast';
+
+
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const notify = () => toast.success('LogOut successful')
+
+    const handleLogOut = () => {
+        logOut()
+        .then(() =>{
+            navigate('/login')
+            notify()
+        } )
+        .catch(err => {
+            console.log(err.message);
+        })
+    }
 
     const dashboardDropdown = (
         <ul className="p-2 font-semibold">
-            <li><NavLink to="/add_service">Add Service</NavLink></li>
-            <li><NavLink to="/manage_service">Manage Service</NavLink></li>
-            <li><NavLink to="/booked_services">Booked-Services</NavLink></li>
-            <li><NavLink to="/service_to_do">Service-To-Do</NavLink></li>
+            <li>
+                <NavLink to="/add_service">Add Service</NavLink>
+            </li>
+            <li>
+                <NavLink to="/manage_service">Manage Service</NavLink>
+            </li>
+            <li>
+                <NavLink to="/booked_services">Booked-Services</NavLink>
+            </li>
+            <li>
+                <NavLink to="/service_to_do">Service-To-Do</NavLink>
+            </li>
         </ul>
     );
 
@@ -51,7 +79,9 @@ const Navbar = () => {
                         </li>
                     </ul>
                 </div>
-                <Link to="/" className="font-extrabold text-3xl text-[#124076]">Educator.org</Link>
+                <Link to="/" className="font-extrabold text-3xl text-[#124076]">
+                    Educator.org
+                </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 font-semibold">
@@ -70,8 +100,23 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end ">
-                <Link className="cursor-pointer md:px-4 px-2 py-2 rounded-full bg-[#124076] text-white font-semibold" to="/login">Login/Registration</Link>
+                {user ? (
+                    <Link
+                        onClick={handleLogOut}
+                        className="cursor-pointer md:px-4 px-2 py-2 rounded-full bg-[#124076] text-white font-semibold"
+                    >
+                        Log Out
+                    </Link>
+                ) : (
+                    <Link
+                        className="cursor-pointer md:px-4 px-2 py-2 rounded-full bg-[#124076] text-white font-semibold"
+                        to="/login"
+                    >
+                        Login/Registration
+                    </Link>
+                )}
             </div>
+            <Toaster />
         </div>
     );
 };

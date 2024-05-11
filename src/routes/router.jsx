@@ -9,6 +9,7 @@ import Service_to_do from "../pages/Service_to_do/Service_to_do";
 import Login from "../pages/Login/Login";
 import Registration from "../pages/Registration/Registration";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
 
 
 export const router = createBrowserRouter([
@@ -27,7 +28,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/add_service",
-                element: <Add_service></Add_service>
+                element: <PrivateRoute><Add_service></Add_service></PrivateRoute>
             },
             {
                 path: "/manage_service",
