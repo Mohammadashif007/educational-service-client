@@ -1,6 +1,6 @@
 import Lottie from "lottie-react";
 import registrationImage from "../../assets/lottie/registration.json";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { FaGoogle } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
@@ -9,8 +9,8 @@ import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 
 const Registration = () => {
-    const { createUser, loginWithGoogle } = useContext(AuthContext);
-
+    const { createUser, loginWithGoogle, updateUser } = useContext(AuthContext);
+    const navigate = useNavigate();
     const notify = () => toast.success("Account Create successfully");
 
     const {
@@ -27,6 +27,14 @@ const Registration = () => {
             .then((res) => {
                 const result = res.user;
                 console.log(result);
+                updateUser(data.name, data.photoURL)
+                .then(() => {
+                    
+                })
+                .catch(err => {
+                    console.log(err.message);
+                })
+
                 notify();
                 reset();
             })
@@ -41,6 +49,7 @@ const Registration = () => {
                 const result = res.user;
                 console.log(result);
                 notify();
+                navigate("/")
             })
             .catch((err) => {
                 console.log(err.message);

@@ -1,26 +1,24 @@
 import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
-import toast, { Toaster } from 'react-hot-toast';
-
-
+import toast, { Toaster } from "react-hot-toast";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    const notify = () => toast.success('LogOut successful')
+    const notify = () => toast.success("LogOut successful");
 
     const handleLogOut = () => {
         logOut()
-        .then(() =>{
-            navigate('/login')
-            notify()
-        } )
-        .catch(err => {
-            console.log(err.message);
-        })
-    }
+            .then(() => {
+                navigate("/login");
+                notify();
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    };
 
     const dashboardDropdown = (
         <ul className="p-2 font-semibold">
@@ -101,12 +99,19 @@ const Navbar = () => {
             </div>
             <div className="navbar-end ">
                 {user ? (
-                    <Link
-                        onClick={handleLogOut}
-                        className="cursor-pointer md:px-4 px-2 py-2 rounded-full bg-[#124076] text-white font-semibold"
-                    >
-                        Log Out
-                    </Link>
+                    <>
+                        <Link
+                            onClick={handleLogOut}
+                            className="cursor-pointer md:px-4 px-2 py-2 rounded-full bg-[#124076] text-white font-semibold"
+                        >
+                            Log Out
+                        </Link>
+                        <div className="avatar ml-3">
+                            <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                <img src={user?.photoURL} />
+                            </div>
+                        </div>
+                    </>
                 ) : (
                     <Link
                         className="cursor-pointer md:px-4 px-2 py-2 rounded-full bg-[#124076] text-white font-semibold"
