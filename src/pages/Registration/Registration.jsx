@@ -6,14 +6,12 @@ import { FaGoogle } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
-import toast, { Toaster } from 'react-hot-toast';
-
+import toast, { Toaster } from "react-hot-toast";
 
 const Registration = () => {
+    const { createUser, loginWithGoogle } = useContext(AuthContext);
 
-    const {createUser, loginWithGoogle} = useContext(AuthContext);
-
-    const notify = () => toast.success('Account Create successfully');
+    const notify = () => toast.success("Account Create successfully");
 
     const {
         register,
@@ -26,31 +24,28 @@ const Registration = () => {
     const onSubmit = (data) => {
         console.log(data);
         createUser(data.email, data.password)
-        .then(res => {
-            const result = res.user;
-            console.log(result);
-            notify()
-            reset()
-        })
-        .catch(err => {
-            console.log(err.message);
-        })
+            .then((res) => {
+                const result = res.user;
+                console.log(result);
+                notify();
+                reset();
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
     };
-
 
     const handleGoogleLogin = () => {
         loginWithGoogle()
-        .then(res => {
-            const result = res.user;
-            console.log(result);
-            notify()
-        })
-        .catch(err => {
-            console.log(err.message);
-        })
-    }
-
-
+            .then((res) => {
+                const result = res.user;
+                console.log(result);
+                notify();
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    };
 
     return (
         <div className=" min-h-screen bg-base-200 p-10 md:flex justify-center items-center gap-28">
@@ -72,10 +67,14 @@ const Registration = () => {
                         <input
                             type="text"
                             placeholder="Name"
-                            {...register("name")}
+                            {...register("name", { required: true })}
                             className="input input-bordered"
-                            required
                         />
+                        {errors.name && (
+                            <span className="text-red-500">
+                                Name field is required
+                            </span>
+                        )}
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -84,10 +83,14 @@ const Registration = () => {
                         <input
                             type="email"
                             placeholder="Email"
-                            {...register("email")}
+                            {...register("email", { required: true })}
                             className="input input-bordered"
-                            required
                         />
+                        {errors.email && (
+                            <span className="text-red-500">
+                                Email field is required
+                            </span>
+                        )}
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -98,22 +101,41 @@ const Registration = () => {
                         <input
                             type="password"
                             placeholder="Password"
-                            {...register("password")}
+                            {...register("password", {
+                                required: "Password field is required",
+                                minLength: {
+                                    value: 8,
+                                    message:
+                                        "Password must have at list 8 character",
+                                },
+                                pattern: {
+                                    value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/,
+                                    message: "Password must have one uppercase, one lowercase and one number"
+                                }
+                            })}
                             className="input input-bordered"
-                            required
                         />
+                        {errors.password && (
+                            <span className="text-red-500">{errors.password.message}</span>
+                        )}
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-bold">Photo URL</span>
+                            <span className="label-text font-bold">
+                                Photo URL
+                            </span>
                         </label>
                         <input
                             type="text"
                             placeholder="Photo URL"
-                            {...register("photoURL")}
+                            {...register("photoURL", { required: true })}
                             className="input input-bordered"
-                            required
                         />
+                        {errors.photoURL && (
+                            <span className="text-red-500">
+                                PhotoURL field is required
+                            </span>
+                        )}
                     </div>
                     <div className="form-control mt-6">
                         <button className=" px-5 py-3 rounded-lg bg-[#124076] text-white">
@@ -121,7 +143,10 @@ const Registration = () => {
                         </button>
                     </div>
                     <div className="form-control">
-                        <button onClick={handleGoogleLogin} className=" px-5 py-3 rounded-lg bg-[#124076] text-white flex justify-center items-center gap-2">
+                        <button
+                            onClick={handleGoogleLogin}
+                            className=" px-5 py-3 rounded-lg bg-[#124076] text-white flex justify-center items-center gap-2"
+                        >
                             <FaGoogle className="text-2xl" />
                             <div>Google</div>
                         </button>
