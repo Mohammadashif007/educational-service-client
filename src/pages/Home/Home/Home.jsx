@@ -1,4 +1,6 @@
 import { Helmet } from "react-helmet-async";
+import Multimedia_section from "../Multimedia_section/Multimedia_section";
+import Banner from "../Banner/Banner";
 
 
 const Home = () => {
@@ -7,7 +9,8 @@ const Home = () => {
             <Helmet>
                 <title>Home</title>
             </Helmet>
-            <h1>This is home</h1>
+            <Banner></Banner>
+            <Multimedia_section></Multimedia_section>
         </div>
     );
 };
