@@ -3,6 +3,7 @@ import loginImage from "../../assets/lottie/login.json";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { FaGoogle } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const {
@@ -20,6 +21,9 @@ const Login = () => {
 
     return (
         <div className=" min-h-screen bg-base-200 p-10 md:flex justify-center items-center gap-28">
+            <Helmet>
+                <title>Login</title>
+            </Helmet>
             <div className="mb-10">
                 <Lottie animationData={loginImage}></Lottie>
             </div>

@@ -3,6 +3,7 @@ import registrationImage from "../../assets/lottie/registration.json";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { FaGoogle } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const Registration = () => {
     const {
@@ -19,6 +20,9 @@ const Registration = () => {
     };
     return (
         <div className=" min-h-screen bg-base-200 p-10 md:flex justify-center items-center gap-28">
+            <Helmet>
+                <title>Registration</title>
+            </Helmet>
             <div className="mb-10 ">
                 <Lottie className="" animationData={registrationImage}></Lottie>
             </div>
