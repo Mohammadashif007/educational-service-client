@@ -1,7 +1,6 @@
 import Main from "../layout/Main/Main";
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home/Home/Home";
-import Services from "../pages/Services/Services";
 import Add_service from "../pages/Add_service/Add_service";
 import Manage_service from "../pages/Manage_service/Manage_service";
 import Booked_services from "../pages/Booked_services/Booked_services";
@@ -10,6 +9,8 @@ import Login from "../pages/Login/Login";
 import Registration from "../pages/Registration/Registration";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
+import All_services_page from "../pages/All_services_page/All_services_page";
+
 
 
 export const router = createBrowserRouter([
@@ -23,8 +24,8 @@ export const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: "/all_services",
-                element: <Services></Services>
+                path: "/all_services_page",
+                element: <All_services_page></All_services_page>
             },
             {
                 path: "/add_service",
