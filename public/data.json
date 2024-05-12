@@ -1,99 +1,110 @@
 [
     {
-       
-       "id": 1,
         "image": "https://i.ibb.co/hmpc55s/p.jpg",
         "name": "Introduction to Python Programming",
         "price": "$49.99",
         "description": "Learn the fundamentals of Python programming language, including variables, data types, loops, and functions.",
-        "service_area": "Education"
+        "service_area": "Educational technology",
+        "instructor_image":"https://i.ibb.co/z6QBVpj/au.jpg",
+        "instructor_name": "John Doe"
     },
     {
-        "id":2, 
         "image": "https://i.ibb.co/dgpBft4/w.jpg",
         "name": "Web Development with HTML, CSS, and JavaScript",
         "price": "$79.99",
         "description": "Master the basics of web development with HTML, CSS, and JavaScript. Build interactive websites and web applications.",
-        "service_area": "Education"
+        "service_area": "Educational technology",
+        "instructor_image":"https://i.ibb.co/8Bp2KPH/p6.jpg",
+        "instructor_name": "Tom Cooke"
     },
     {
-        "id":3, 
         "image": "https://i.ibb.co/wQPWwHL/m.jpg",
-        "name": "Machine Learning Fundamentals", 
+        "name": "Machine Learning Fundamentals",
         "price": "$129.99",
         "description": "Discover the principles of machine learning and how to apply them to solve real-world problems using Python and scikit-learn.",
-        "service_area": "Education"
+        "service_area": "Educational technology",
+        "instructor_image":"https://i.ibb.co/5BsMgzF/author.webp",
+        "instructor_name": "Ema Watson"
     },
     {
-        "id":4, 
         "image": "https://i.ibb.co/Gx0k7yt/g.jpg",
         "name": "Graphic Design Essentials",
         "price": "$69.99",
         "description": "Learn essential graphic design principles, tools, and techniques using industry-standard software like Adobe Photoshop and Illustrator.",
-        "service_area": "Education"
+        "service_area": "Graphic",
+        "instructor_image":"https://i.ibb.co/L8w5sFG/p2.jpg",
+        "instructor_name": "Joe Biden"
     },
     {
-        "id":5, 
         "image": "https://i.ibb.co/Zcjvbxc/f.jpg",
         "name": "Financial Planning and Wealth Management",
         "price": "$99.99",
         "description": "Understand the basics of financial planning, investment strategies, and wealth management to secure your financial future.",
-        "service_area": "Education"
+        "service_area": "Finance",
+        "instructor_image":"https://i.ibb.co/6b62j2w/p7.jpg",
+        "instructor_name": "Elon Musk"
     },
     {
-        "id":6, 
         "image": "https://i.ibb.co/S3vMp0x/s.jpg",
         "name": "Spanish for Beginners",
         "price": "$59.99",
         "description": "Start your journey to learn Spanish with this beginner-friendly course. Master vocabulary, grammar, and basic conversation skills.",
-        "service_area": "Education"
+        "service_area": "Language",
+        "instructor_image":"https://i.ibb.co/MZr6QCt/p1.jpg",
+        "instructor_name": "Donald Trump"
     },
     {
-        "id":7, 
         "image": "https://i.ibb.co/tXHvfXh/photography.jpg",
         "name": "Photography Masterclass",
         "price": "$89.99",
         "description": "Unlock the secrets of photography and improve your skills with this comprehensive masterclass. Learn about composition, lighting, and editing techniques.",
-        "service_area": "Education"
+        "service_area": "Photography",
+        "instructor_image":"https://i.ibb.co/YP4ZnxB/p9.webp",
+        "instructor_name": "John Canaday"
     },
     {
-        "id":8, 
         "image": "https://i.ibb.co/FBBg0Vd/digital.jpg",
         "name": "Digital Marketing Strategies",
         "price": "$109.99",
         "description": "Explore the world of digital marketing and learn how to create effective strategies for social media, email campaigns, SEO, and more.",
-        "service_area": "Education"
+        "service_area": "Marketing",
+        "instructor_image":"https://i.ibb.co/ZmBGVNn/p4.jpg",
+        "instructor_name": "Bravo"
     },
     {
-        "id":9, 
         "image": "https://i.ibb.co/80XxzNg/yoga.jpg",
         "name": "Yoga and Meditation for Beginners",
         "price": "$39.99",
         "description": "Start your journey to wellness with this beginner-friendly course on yoga and meditation. Improve flexibility, reduce stress, and find inner peace.",
-        "service_area": "Education"
+        "service_area": "Mental Health",
+        "instructor_image":"https://i.ibb.co/k2tTP9q/p8.png",
+        "instructor_name": "Jeff Bezos"
     },
     {
-        "id":10, 
         "image": "https://i.ibb.co/RbFbfC0/cooking.jpg",
         "name": "Cooking Basics: From Knife Skills to Flavor Pairing",
         "price": "$49.99",
         "description": "Master the basics of cooking with this comprehensive course. Learn essential techniques, knife skills, and how to pair flavors like a pro chef.",
-        "service_area": "Education"
+        "service_area": "Cooking",
+        "instructor_image":"https://i.ibb.co/k2tTP9q/p8.png",
+        "instructor_name": "Mark"
     },
     {
-        "id":11, 
         "image": "https://i.ibb.co/c39KrPq/writing.jpg",
         "name": "Creative Writing Workshop",
         "price": "$59.99",
         "description": "Unleash your creativity and learn the art of storytelling with this engaging creative writing workshop. Develop your voice, style, and narrative skills.",
-        "service_area": "Education"
+        "service_area": "Content Writing",
+        "instructor_image":"https://i.ibb.co/k2tTP9q/p8.png",
+        "instructor_name": "Zuckerberg"
     },
     {
-        "id":12, 
         "image": "https://i.ibb.co/TRn1Mnb/english.jpg",
         "name": "English Speaking Mastery",
         "price": "$59.99",
         "description": "Become fluent in English with our comprehensive speaking course. Practice conversation, pronunciation, and fluency techniques.",
-        "service_area": "Education"
+        "service_area": "Language",
+        "instructor_image":"https://i.ibb.co/1b03mJB/p3.jpg",
+        "instructor_name": "Larry"
     }
 ]

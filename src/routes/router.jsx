@@ -10,6 +10,7 @@ import Registration from "../pages/Registration/Registration";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import All_services_page from "../pages/All_services_page/All_services_page";
+import DetailsPage from "../components/DetailsPage";
 
 
 
@@ -51,7 +52,12 @@ export const router = createBrowserRouter([
                 path: "/registration",
                 element: <Registration></Registration>
             },
-          
+            {
+                path: '/detailsPage/:id',
+                element: <PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>,
+                loader: ({params}) => fetch(`http://localhost:3000/services/${params.id}`)
+            }
+            
            
         ]
     }
