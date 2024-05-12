@@ -11,6 +11,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import All_services_page from "../pages/All_services_page/All_services_page";
 import DetailsPage from "../components/DetailsPage";
+import DetailsForm from "../components/DetailsForm";
 
 
 
@@ -56,7 +57,13 @@ export const router = createBrowserRouter([
                 path: '/detailsPage/:id',
                 element: <PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:3000/services/${params.id}`)
-            }
+            },
+            {
+                path: '/detailsForm/:id',
+                element: <PrivateRoute><DetailsForm></DetailsForm></PrivateRoute>,
+                loader: ({params}) => fetch(`http://localhost:3000/services/${params.id}`)
+            },
+
             
            
         ]

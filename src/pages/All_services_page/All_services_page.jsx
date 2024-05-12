@@ -2,6 +2,7 @@ import CommonBanner from "../../components/CommonBanner";
 import ItemCard from "../../components/ItemCard";
 import useLoadData from "../../hooks/useLoadData";
 import allCoursesBannerImg from "../../assets/commonBanner/b.jpg";
+import { Helmet } from "react-helmet-async";
 
 const All_services_page = () => {
     const services = useLoadData();
@@ -11,6 +12,9 @@ const All_services_page = () => {
 
     return (
         <div className=" my-5">
+            <Helmet>
+                <title>All Services</title>
+            </Helmet>
             <CommonBanner
                 cover={allCoursesBannerImg}
                 title={title}
