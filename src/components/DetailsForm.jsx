@@ -5,7 +5,7 @@ import useAuth from "../hooks/useAuth";
 const DetailsForm = () => {
     const {user} = useAuth();
     const data = useLoaderData();
-    const { image, description, price, name, _id, provider_email, provider_name } = data;
+    const { image, description, price, name, _id, instructor_email, instructor_name } = data;
 
     const {
         register,
@@ -79,12 +79,12 @@ const DetailsForm = () => {
                 <div className="flex gap-3 w-full">
                     <div className="w-full">
                         <label className="block mt-4 font-semibold mb-1">
-                            Provided Email:
+                            Instructor Email:
                         </label>
                         <input
                             type="email"
                             {...register("provider_email")}
-                            defaultValue={provider_email}
+                            defaultValue={instructor_email}
                             readOnly
                             className="block w-full rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 px-3 py-2 border-2 border-gray-400"
                         />
@@ -92,12 +92,12 @@ const DetailsForm = () => {
 
                     <div className="w-full">
                         <label className="block mt-4 font-semibold mb-1">
-                            Provider Name:
+                            Instructor Name:
                         </label>
                         <input
                             type="text"
                             {...register("provider_name")}
-                            defaultValue={provider_name}
+                            defaultValue={instructor_name}
                             readOnly
                             className="block w-full rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 px-3 py-2 border-2 border-gray-400"
                         />

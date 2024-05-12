@@ -1,6 +1,10 @@
 import { useForm } from "react-hook-form";
+import useAuth from "../../hooks/useAuth";
+import axios from "axios";
 
 const Add_service = () => {
+    const {user} = useAuth();
+ 
     const {
         register,
         handleSubmit,
@@ -8,8 +12,19 @@ const Add_service = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        // Handle form submission here
-        console.log(data);
+        const formData = {
+            ...data,
+            instructor_name: user.displayName,
+            instructor_email: user.email,
+            instructor_image: user.photoURL
+        }
+        axios.post("http://localhost:3000/services", formData)
+        .then(res => {
+            console.log(res.data);
+        })
+        .catch(err => {
+            console.log(err);
+        })
     };
     return (
         <div className="bg-gray-100 min-h-screen flex justify-center items-center py-10">
@@ -25,12 +40,12 @@ const Add_service = () => {
                             </label>
                             <input
                                 type="text"
-                                {...register("service_name", {
+                                {...register("name", {
                                     required: true,
                                 })}
                                 className="form-input mt-1 w-full border-2 py-2 rounded-lg px-3"
                             />
-                            {errors.service_name && (
+                            {errors.name && (
                                 <span className="text-red-500">
                                     Service Name is required
                                 </span>
@@ -62,7 +77,7 @@ const Add_service = () => {
                                 Price:
                             </label>
                             <input
-                                type="number"
+                                type="text"
                                 {...register("price", { required: true })}
                                 className="form-input mt-1 w-full border-2 py-2 rounded-lg px-3"
                             />
@@ -79,7 +94,7 @@ const Add_service = () => {
                             </label>
                             <input
                                 type="text"
-                                {...register("photo_url", { required: true })}
+                                {...register("image", { required: true })}
                                 className="form-input mt-1 w-full border-2 py-2 rounded-lg px-3"
                             />
                             {errors.photo_url && (
