@@ -1,42 +1,40 @@
 import { useForm } from "react-hook-form";
-import useAuth from "../../hooks/useAuth";
-import axios from "axios";
-import Swal from 'sweetalert2';
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const Add_service = () => {
-    const {user} = useAuth();
- 
+const UpdateInfo = () => {
+    const data = useLoaderData();
+    const { image, description, price, name, service_area, _id } = data;
+
     const {
         register,
         handleSubmit,
         reset,
         formState: { errors },
-        
     } = useForm();
 
     const onSubmit = (data) => {
-        const formData = {
-            ...data,
-            instructor_name: user.displayName,
-            instructor_email: user.email,
-            instructor_image: user.photoURL
-        }
-        axios.post("http://localhost:3000/services", formData)
-        .then(res => {
-            if(res.data.insertedId){
-                reset();
-                Swal.fire({
-                    icon: "success",
-                    title: "Your service added successfully",
-                    showConfirmButton: false,
-                    timer: 1500
-                  });
-            }
+        fetch(`http://localhost:3000/services/${_id}`, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(data),
         })
-        .catch(err => {
-            console.log(err);
-        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Course Info Updated Successfully",
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                }
+            });
     };
+
     return (
         <div className="bg-gray-100 min-h-screen flex justify-center items-center py-10">
             <div className="max-w-2xl w-full mx-4 bg-white p-6 rounded-lg shadow-md">
@@ -54,6 +52,7 @@ const Add_service = () => {
                                 {...register("name", {
                                     required: true,
                                 })}
+                                defaultValue={name}
                                 className="form-input mt-1 w-full border-2 py-2 rounded-lg px-3"
                             />
                             {errors.name && (
@@ -72,6 +71,7 @@ const Add_service = () => {
                                 {...register("service_area", {
                                     required: true,
                                 })}
+                                defaultValue={service_area}
                                 className="form-input mt-1 w-full border-2 py-2 rounded-lg px-3"
                             />
                             {errors.service_area && (
@@ -90,6 +90,7 @@ const Add_service = () => {
                             <input
                                 type="text"
                                 {...register("price", { required: true })}
+                                defaultValue={price}
                                 className="form-input mt-1 w-full border-2 py-2 rounded-lg px-3"
                             />
                             {errors.price && (
@@ -106,6 +107,7 @@ const Add_service = () => {
                             <input
                                 type="text"
                                 {...register("image", { required: true })}
+                                defaultValue={image}
                                 className="form-input mt-1 w-full border-2 py-2 rounded-lg px-3"
                             />
                             {errors.photo_url && (
@@ -126,6 +128,7 @@ const Add_service = () => {
                         <textarea
                             id="description"
                             {...register("description", { required: true })}
+                            defaultValue={description}
                             className="form-textarea mt-1 w-full border-2 py-2 rounded-lg px-3"
                             rows="4"
                         ></textarea>
@@ -150,4 +153,4 @@ const Add_service = () => {
     );
 };
 
-export default Add_service;
+export default UpdateInfo;

@@ -25,8 +25,8 @@ const All_services_page = () => {
                     Our courses
                 </p>
                 <div className="grid grid-cols-3 gap-3">
-                    {services.map((service, idx) => (
-                        <ItemCard key={idx} service={service}></ItemCard>
+                    {services.map((service) => (
+                        <ItemCard key={service._id} service={service}></ItemCard>
                     ))}
                 </div>
             </div>

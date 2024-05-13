@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivateRoute";
 import All_services_page from "../pages/All_services_page/All_services_page";
 import DetailsPage from "../components/DetailsPage";
 import DetailsForm from "../components/DetailsForm";
+import UpdateInfo from "../components/UpdateInfo";
 
 
 
@@ -35,7 +36,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/manage_service",
-                element: <Manage_service></Manage_service>
+                element: <PrivateRoute><Manage_service></Manage_service></PrivateRoute>
             },
             {
                 path: "/booked_services",
@@ -63,7 +64,11 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute><DetailsForm></DetailsForm></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:3000/services/${params.id}`)
             },
-
+            {
+                path: '/updateInfo/:id',
+                element: <PrivateRoute><UpdateInfo></UpdateInfo></PrivateRoute>,
+                loader: ({params}) => fetch(`http://localhost:3000/services/${params.id}`)
+            }
             
            
         ]
