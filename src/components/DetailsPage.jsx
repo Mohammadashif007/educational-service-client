@@ -15,6 +15,8 @@ const DetailsPage = () => {
         instructor_name,
         _id
     } = course;
+
+
     return (
         <div className="flex justify-center items-end gap-5 my-10 w-4/5 mx-auto">
             <Helmet>

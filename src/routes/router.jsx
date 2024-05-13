@@ -40,7 +40,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/booked_services",
-                element: <Booked_services></Booked_services>
+                element: <PrivateRoute><Booked_services></Booked_services></PrivateRoute>,
+                // element:<Booked_services></Booked_services>,
             },
             {
                 path: "/service_to_do",

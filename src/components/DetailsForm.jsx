@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
 import { useLoaderData } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const DetailsForm = () => {
     const {user} = useAuth();
@@ -15,8 +17,22 @@ const DetailsForm = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data);
+        axios.post('http://localhost:3000/bookings', data)
+        .then(res => {
+            if(res.data.insertedId){
+                Swal.fire({
+                    icon: "success",
+                    title: "Service booked successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
+        })
+        
     };
+
+
+
     return (
         <div className="max-w-2xl mx-auto my-10">
             <form
@@ -148,6 +164,7 @@ const DetailsForm = () => {
                         Special Instruction:
                     </label>
                     <textarea
+                        type="text"
                         {...register("instruction")}
                         rows="4"
                         cols="50"
