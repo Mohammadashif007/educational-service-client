@@ -3,6 +3,7 @@ import Multimedia_section from "../Multimedia_section/Multimedia_section";
 import Banner from "../Banner/Banner";
 import FeaturedServices from "../FeaturedServices/FeaturedServices";
 import Testimonials from "../Testimonials/Testimonials";
+import Best_teacher from "../Best_teacher/Best_teacher";
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
             <FeaturedServices></FeaturedServices>
             <Testimonials></Testimonials>
             <Multimedia_section></Multimedia_section>
+            <Best_teacher></Best_teacher>
 
         </div>
     );

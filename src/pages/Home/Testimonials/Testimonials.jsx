@@ -23,7 +23,7 @@ const Testimonials = () => {
     }, []);
     return (
         <div className="w-4/5 mx-auto my-20">
-            <p className="font-bold text-center text-4xl">
+            <p className="font-bold text-center text-4xl mb-10">
                 Testimonials of Our students
             </p>
             <Swiper
@@ -43,17 +43,28 @@ const Testimonials = () => {
                 <div>
                     {reviews.map((x) => (
                         <SwiperSlide key={x.id}>
-                            <div className="flex flex-col justify-center items-center py-10 px-16 text-center ">
-                                <Rating
-                                    style={{ maxWidth: 200 }}
-                                    value={x.rating}
-                                    readOnly
-                                />
-                                <p className="my-2 text-[18px] py-1">{x.review}</p>
-                                <p className="font-semibold text-2xl my-1">
-                                    {x.name}
-                                </p>
-                                <p className="font-semibold">{x.address}</p>
+                            <div className="flex gap-16 justify-center items-center py-10 px-16  bg-gray-200">
+                                <div className="my-10">
+                                    <img
+                                        className="h-[400px] w-full"
+                                        src={x.image}
+                                        alt=""
+                                    />
+                                </div>
+                                <div>
+                                    <Rating
+                                        style={{ maxWidth: 200 }}
+                                        value={x.rating}
+                                        readOnly
+                                    />
+                                    <p className="my-2 text-[18px] py-1">
+                                        {x.review}
+                                    </p>
+                                    <p className="font-semibold text-2xl my-1">
+                                        {x.name}
+                                    </p>
+                                    <p className="font-semibold">{x.address}</p>
+                                </div>
                             </div>
                         </SwiperSlide>
                     ))}

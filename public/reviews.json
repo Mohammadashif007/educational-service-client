@@ -4,34 +4,39 @@
       "name": "John Doe",
       "rating": 4.5,
       "address": "123 Main St, Springfield, IL",
-      "review": "education.org offers a great variety of courses and the prices are very affordable, especially during sales. The interface is user-friendly."
+      "review": "education.org offers a great variety of courses and the prices are very affordable, especially during sales. The interface is user-friendly.",
+      "image": "https://i.ibb.co/yNCwM3V/r5.jpg"
     },
     {
       "id": 2,
       "name": "Jane Smith",
       "rating": 4.0,
       "address": "456 Elm St, Metropolis, NY",
-      "review": "The course selection on education.org is excellent, but the quality can be hit or miss. Overall, a good platform for learning new skills."
+      "review": "The course selection on education.org is excellent, but the quality can be hit or miss. Overall, a good platform for learning new skills.",
+      "image": "https://i.ibb.co/v3RT8zJ/r4.jpg"
     },
     {
       "id": 3,
       "name": "Alice Johnson",
       "rating": 4.8,
       "address": "789 Oak St, Gotham, NJ",
-      "review": "I've had a great experience with education.org. The mobile app is convenient for learning on the go. I highly recommend it."
+      "review": "I've had a great experience with education.org. The mobile app is convenient for learning on the go. I highly recommend it.",
+      "image": "https://i.ibb.co/k8wG0hN/r3.jpg"
     },
     {
       "id": 4,
       "name": "Bob Brown",
       "rating": 3.5,
       "address": "101 Pine St, Smallville, KS",
-      "review": "education.org has a lot of courses, but interaction with instructors is limited. Some courses are great, but others not so much."
+      "review": "education.org has a lot of courses, but interaction with instructors is limited. Some courses are great, but others not so much.",
+      "image": "https://i.ibb.co/WgjDNmQ/r2.jpg"
     },
     {
       "id": 5,
       "name": "Charlie Davis",
       "rating": 4.2,
       "address": "202 Maple St, Star City, WA",
-      "review": "Good platform with a variety of courses. The certificates are not accredited, but it's still a good way to learn new things on education.org."
+      "review": "Good platform with a variety of courses. The certificates are not accredited, but it's still a good way to learn new things on education.org.",
+      "image": "https://i.ibb.co/cXzqyZr/r1.jpg"
     }
   ]

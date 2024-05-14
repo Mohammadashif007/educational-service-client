@@ -41,6 +41,7 @@ const Login = () => {
             .then((res) => {
                 const result = res.user;
                 console.log(result);
+                navigate(from)
             })
             .catch((err) => {
                 console.log(err.message);
@@ -72,7 +73,11 @@ const Login = () => {
                             })}
                             className="input input-bordered"
                         />
-                        {errors.email && <span className="text-red-600 mt-2 font-semibold">{errors.email.message}</span>}
+                        {errors.email && (
+                            <span className="text-red-600 mt-2 font-semibold">
+                                {errors.email.message}
+                            </span>
+                        )}
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -88,23 +93,27 @@ const Login = () => {
                             })}
                             className="input input-bordered"
                         />
-                        {errors.password && <span className="text-red-600 mt-2 font-semibold">{errors.password.message}</span>}
+                        {errors.password && (
+                            <span className="text-red-600 mt-2 font-semibold">
+                                {errors.password.message}
+                            </span>
+                        )}
                     </div>
                     <div className="form-control mt-6">
                         <button className=" px-5 py-3 rounded-lg bg-[#124076] text-white">
                             Login
                         </button>
                     </div>
-                    <div className="form-control">
-                        <button
-                            onClick={handleGoogleLogin}
-                            className=" px-5 py-3 rounded-lg bg-[#124076] text-white flex justify-center items-center gap-2"
-                        >
-                            <FaGoogle className="text-2xl" />
-                            <div>Google</div>
-                        </button>
-                    </div>
                 </form>
+                <div className="form-control w-5/6 mx-auto mb-3">
+                    <button
+                        onClick={handleGoogleLogin}
+                        className=" px-5 py-3 rounded-lg bg-[#124076] text-white flex justify-center items-center gap-2"
+                    >
+                        <FaGoogle className="text-2xl" />
+                        <div>Google</div>
+                    </button>
+                </div>
                 <p className="font-bold pb-5 mx-9">
                     New here ? Please{" "}
                     <span className="text-[#124076] cursor-pointer">
