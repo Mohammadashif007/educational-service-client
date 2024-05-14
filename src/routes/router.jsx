@@ -45,7 +45,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/service_to_do",
-                element: <Service_to_do></Service_to_do>
+                element: <PrivateRoute><Service_to_do></Service_to_do></PrivateRoute>
             },
             {
                 path: "/login",

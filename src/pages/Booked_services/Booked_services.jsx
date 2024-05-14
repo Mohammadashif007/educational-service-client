@@ -2,13 +2,17 @@ import { Helmet } from "react-helmet-async";
 import empty from "../../assets/shopping/shopping.png";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Booked_services = () => {
     const [bookings, setBookings] = useState([]);
-    const {user} = useAuth();
-    axios.get(`http://localhost:3000/bookings?email=${user?.email}`)
-    .then(res => setBookings(res.data))
+    const { user } = useAuth();
+
+    useEffect(() => {
+        axios
+            .get(`http://localhost:3000/bookings?email=${user?.email}`)
+            .then((res) => setBookings(res.data));
+    }, []);
     return (
         <div>
             <Helmet>

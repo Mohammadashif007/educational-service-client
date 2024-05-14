@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -21,7 +22,7 @@ const Navbar = () => {
     };
 
     const dashboardDropdown = (
-        <ul className="p-2 font-semibold">
+        <ul className="p-2 font-semibold w-[200px]">
             <li>
                 <NavLink to="/add_service">Add Service</NavLink>
             </li>
@@ -69,7 +70,9 @@ const Navbar = () => {
                             <NavLink to="/">Home</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/all_services_page">All Services</NavLink>
+                            <NavLink to="/all_services_page">
+                                All Services
+                            </NavLink>
                         </li>
                         <li>
                             <a>Dashboard</a>
@@ -106,11 +109,16 @@ const Navbar = () => {
                         >
                             Log Out
                         </Link>
-                        <div className="avatar ml-3">
-                            <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                <img src={user?.photoURL} />
+                        <Tooltip anchorSelect=".my-anchor-element" place="top">
+                            {user.displayName}
+                        </Tooltip>
+                        <a className="my-anchor-element">
+                            <div className="avatar ml-3">
+                                <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                    <img src={user?.photoURL} />
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </>
                 ) : (
                     <Link
