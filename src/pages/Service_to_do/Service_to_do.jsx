@@ -88,7 +88,7 @@ const Service_to_do = () => {
                                             <details className="dropdown">
                                                 <summary className={`bg-${x.status === 'working' ? 'sky' : 'green'}-500 text-white rounded-md px-7 py-3 cursor-pointer`}>
                                                     {/* <span>{x.status.charAt(0).toUpperCase() + x.status.slice(1)}</span> */}
-                                                    {x.status?<span>{x.status}</span>:<span className="bg-orange-500">Pending</span>}
+                                                    {x.status?<span>{x.status}</span>:<span className="">Pending</span>}
                                                 </summary>
                                                 <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box">
                                                     <li

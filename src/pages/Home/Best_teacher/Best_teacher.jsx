@@ -12,9 +12,8 @@ import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 
 const Best_teacher = () => {
     const [teachers, setTeachers] = useState([]);
-    console.log(teachers);
     useEffect(() => {
-        fetch("teachers.json")
+        fetch("http://localhost:3000/teachers")
             .then((res) => res.json())
             .then((data) => setTeachers(data));
     }, []);
