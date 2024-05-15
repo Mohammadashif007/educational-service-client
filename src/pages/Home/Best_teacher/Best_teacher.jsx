@@ -7,16 +7,25 @@ import "swiper/css/pagination";
 
 // import required modules
 import { FreeMode, Pagination } from "swiper/modules";
-import { useEffect, useState } from "react";
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import useLoadData from "../../../hooks/useLoadData";
 
 const Best_teacher = () => {
-    const [teachers, setTeachers] = useState([]);
-    useEffect(() => {
-        fetch("http://localhost:3000/teachers")
-            .then((res) => res.json())
-            .then((data) => setTeachers(data));
-    }, []);
+
+    const url = "http://localhost:3000/teachers";
+    const { isPending, error, data: teachers } = useLoadData(url);
+
+    if (isPending) {
+        return (
+            <div className="flex justify-center items-center">
+                <span className="loading loading-spinner loading-lg text-center m-10"></span>
+            </div>
+        );
+    }
+
+    if (error) {
+        return <div>An error occurred: {error.message}</div>;
+    }
 
     return (
         <div className="w-4/5 mx-auto my-20 dark:bg-black dark:text-white">

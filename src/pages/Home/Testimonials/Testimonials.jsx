@@ -13,14 +13,24 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Rating } from "@smastrom/react-rating";
 
 import "@smastrom/react-rating/style.css";
+import useLoadData from "../../../hooks/useLoadData";
 
 const Testimonials = () => {
-    const [reviews, setReviews] = useState([]);
-    useEffect(() => {
-        fetch("http://localhost:3000/reviews")
-            .then((res) => res.json())
-            .then((data) => setReviews(data));
-    }, []);
+    const url = "http://localhost:3000/reviews";
+    const { isPending, error, data: reviews } = useLoadData(url);
+
+    if (isPending) {
+        return (
+            <div className="flex justify-center items-center">
+                <span className="loading loading-spinner loading-lg text-center m-10"></span>
+            </div>
+        );
+    }
+
+    if (error) {
+        return <div>An error occurred: {error.message}</div>;
+    }
+
     return (
         <div className="w-4/5 mx-auto my-20 dark:bg-black dark:text-white">
             <p className="font-bold text-center text-4xl mb-10">
