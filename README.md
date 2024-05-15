@@ -1,6 +1,6 @@
 # education.org
 
-Welcome to education.org! This is a website dedicated to providing educational resources and services to learners worldwide. Below you'll find information about the technologies used, features, and how to set up and run the project locally.
+Welcome to education.org! This website provide educational content for learners as well as bring a new opportunity of the teachers. Who have any kind of skill and have courage to teach others, they can upload their content here . Below you will aware of information about the technologies used, features.
 
 ## Technologies Used
 
@@ -18,31 +18,31 @@ Welcome to education.org! This is a website dedicated to providing educational r
   - React Tooltip
   - React YouTube
   - Swiper
+  - Tanstack Query
+  - Sweet Alert
+  - Axios
 
 - **Backend:**
   - MongoDB
   - Express
   - Cors
   - Dotenv
-  - Tanstack Query
-  - Axios
-  - Sweet Alert
-
+  
+  
 - **Deployment:**
   - Firebase (for hosting)
   - Vercel (for server deployment)
 
 ## Features
 
-- Browse and search through a wide range of educational courses and resources.
-- Filter courses based on categories, topics, and difficulty levels.
-- User authentication and authorization.
+- User can purchase course.
+- User can upload their course.
+- User can manage their course status.
 - Interactive sliders and animations using Keen Slider and Lottie.
 - Integration with YouTube for educational video content.
-- Smooth navigation using Swiper.
-- Real-time data fetching and caching with Tanstack Query.
+- Smooth routing with react router dom.
 - Enhanced user experience with Sweet Alert and React Hot Toast.
-- SEO optimization with React Helmet.
+
 
 ## Live site link : 
 
