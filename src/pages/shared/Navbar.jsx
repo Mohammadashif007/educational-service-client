@@ -43,7 +43,7 @@ const Navbar = () => {
 
 
     const dashboardDropdown = (
-        <ul className="p-2 font-semibold w-[200px] dark:bg-blue-950 dark:text-white">
+        <ul className="p-2 font-semibold lg:w-[200px] dark:bg-blue-950 dark:text-white">
             <li>
                 <NavLink to="/add_service">Add Service</NavLink>
             </li>

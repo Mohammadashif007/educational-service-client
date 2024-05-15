@@ -32,7 +32,7 @@ const Testimonials = () => {
     }
 
     return (
-        <div className="w-4/5 mx-auto my-20 dark:bg-black dark:text-white">
+        <div className="md:w-4/5 mx-auto my-20 dark:bg-black dark:text-white">
             <p className="font-bold text-center text-4xl mb-10">
                 Testimonials of Our students
             </p>
@@ -53,7 +53,7 @@ const Testimonials = () => {
                 <div>
                     {reviews.map((x) => (
                         <SwiperSlide key={x.id}>
-                            <div className="flex gap-16 justify-center items-center py-10 px-16  bg-gray-200 dark:bg-blue-950">
+                            <div className="lg:flex gap-16 justify-center items-center py-10 px-16  bg-gray-200 dark:bg-blue-950">
                                 <div className="my-10">
                                     <img
                                         className="h-[400px] w-full"

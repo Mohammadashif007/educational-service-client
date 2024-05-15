@@ -25,7 +25,7 @@ const FeaturedServices = () => {
             <h2 className="text-center font-extrabold text-5xl mt-10">
                 Our Popular Courses
             </h2>
-            <div className="grid grid-cols-2 gap-3 my-8 w-4/5 mx-auto ">
+            <div className="grid lg:grid-cols-2 gap-3 my-8 md:w-4/5 mx-auto ">
                 {services &&
                     services
                         .slice(0, 6)

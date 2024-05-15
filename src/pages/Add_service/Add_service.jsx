@@ -48,7 +48,7 @@ const Add_service = () => {
                     Add Your Service
                 </h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 ">
-                    <div className="flex justify-center items-center gap-5">
+                    <div className="lg:flex justify-center items-center gap-5">
                         <div className="w-full">
                             <label className="block font-semibold">
                                 Service Name:
@@ -86,7 +86,7 @@ const Add_service = () => {
                         </div>
                     </div>
 
-                    <div className="flex justify-center items-center gap-5">
+                    <div className="lg:flex justify-center items-center gap-5">
                         <div className="w-full">
                             <label className="block font-semibold">
                                 Price:

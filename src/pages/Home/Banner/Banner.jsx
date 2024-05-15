@@ -46,7 +46,7 @@ const Banner = () => {
     );
 
     return (
-        <div>
+        <div className="">
             <div ref={sliderRef} className="keen-slider h-screen relative">
                 <div className="keen-slider__slide number-slide1 relative">
                     <img

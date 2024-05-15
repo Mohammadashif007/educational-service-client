@@ -5,7 +5,7 @@ import YouTube from "react-youtube";
 const Multimedia_section = () => {
     const opts = {
         height: "390",
-        width: "640",
+        width: "100%",
         playerVars: {
             // https://developers.google.com/youtube/player_parameters
             autoplay: 0,
@@ -13,8 +13,8 @@ const Multimedia_section = () => {
     };
     const videoId = "7cEpNIjMO7c";
     return (
-        <div className="flex justify-center items-center w-4/5 mx-auto my-10 dark:bg-black dark:text-white">
-            <div>
+        <div className="lg:flex justify-center items-center w-4/5 mx-auto my-10 dark:bg-black dark:text-white">
+            <div className="flex-1">
                 <h1 className="text-3xl font-extrabold text-[#124076]">
                     Build your Career To Share Your Knowledge.
                 </h1>
@@ -40,8 +40,8 @@ const Multimedia_section = () => {
                     </div>
                 </div>
             </div>
-            <div>
-                <YouTube videoId={videoId} opts={opts} />
+            <div className="flex-1 lg:m-0 mt-4">
+                <YouTube  className="" videoId={videoId} opts={opts} />
             </div>
         </div>
     );

@@ -53,7 +53,7 @@ const All_services_page = () => {
                 <p className="font-extrabold text-5xl text-center mb-12">
                     Our courses
                 </p>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid lg:grid-cols-3 gap-3">
                     {filteredCourses.map((service) => (
                         <ItemCard
                             key={service._id}

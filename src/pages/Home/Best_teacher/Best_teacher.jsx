@@ -45,7 +45,7 @@ const Best_teacher = () => {
                 >
                     {teachers.map((x) => (
                         <SwiperSlide key={x.id}>
-                            <div className="relative group w-[300px] h-[400px]">
+                            <div className="relative group lg:w-[300px] h-[400px]">
                                 <img
                                     className="w-full h-full object-cover group-hover:opacity-50 transition-opacity duration-300"
                                     src={x.image}
