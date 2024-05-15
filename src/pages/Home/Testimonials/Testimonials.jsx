@@ -16,7 +16,7 @@ import "@smastrom/react-rating/style.css";
 import useLoadData from "../../../hooks/useLoadData";
 
 const Testimonials = () => {
-    const url = "http://localhost:3000/reviews";
+    const url = "https://education-server-eight.vercel.app/reviews";
     const { isPending, error, data: reviews } = useLoadData(url);
 
     if (isPending) {

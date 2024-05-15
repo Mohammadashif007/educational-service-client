@@ -10,14 +10,14 @@ const Service_to_do = () => {
     const [allBookedService, setAllBookedService] = useState([]);
 
     useEffect(() => {
-        axios(`http://localhost:3000/bookings`).then(
+        axios(`https://education-server-eight.vercel.app/bookings`).then(
             (res) => setAllBookedService(res.data)
         );
     }, []);
 
     const handleBookingStateChange = (id, newStatus) => {
         console.log(id, newStatus);
-        fetch(`http://localhost:3000/bookings/${id}`, {
+        fetch(`https://education-server-eight.vercel.app/bookings/${id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",

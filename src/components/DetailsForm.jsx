@@ -5,9 +5,17 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const DetailsForm = () => {
-    const {user} = useAuth();
+    const { user } = useAuth();
     const data = useLoaderData();
-    const { image, description, price, name, _id, instructor_email, instructor_name } = data;
+    const {
+        image,
+        description,
+        price,
+        name,
+        _id,
+        instructor_email,
+        instructor_name,
+    } = data;
 
     const {
         register,
@@ -17,21 +25,19 @@ const DetailsForm = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        axios.post('http://localhost:3000/bookings', data)
-        .then(res => {
-            if(res.data.insertedId){
-                Swal.fire({
-                    icon: "success",
-                    title: "Service booked successfully",
-                    showConfirmButton: false,
-                    timer: 1500
-                  });
-            }
-        })
-        
+        axios
+            .post("https://education-server-eight.vercel.app/bookings", data)
+            .then((res) => {
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Service booked successfully",
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                }
+            });
     };
-
-
 
     return (
         <div className="max-w-2xl mx-auto my-10">
@@ -175,7 +181,7 @@ const DetailsForm = () => {
                 <div className="flex justify-center mt-5">
                     <button
                         type="submit"
-                        className="col-span-2 bg-[#124076] text-white py-3 px-6 rounded-md shadow-sm"  
+                        className="col-span-2 bg-[#124076] text-white py-3 px-6 rounded-md shadow-sm"
                     >
                         Purchase
                     </button>

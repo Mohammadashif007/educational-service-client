@@ -1,3 +1,6 @@
+#category:  Educational Services by Teachers
+
+
 # education.org
 
 Welcome to education.org! This website provide educational content for learners as well as bring a new opportunity of the teachers. Who have any kind of skill and have courage to teach others, they can upload their content here . Below you will aware of information about the technologies used, features.

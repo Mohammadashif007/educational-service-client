@@ -5,14 +5,16 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
 const Manage_service = () => {
-    const {user} = useAuth();
-    const [serviceData, setServiceData] = useState([])
+    const { user } = useAuth();
+    const [serviceData, setServiceData] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/services?email=${user?.email}`)
-        .then(res => res.json())
-        .then(data => setServiceData(data))
-    },[])
+        fetch(
+            `https://education-server-eight.vercel.app/services?email=${user?.email}`
+        )
+            .then((res) => res.json())
+            .then((data) => setServiceData(data));
+    }, []);
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -25,12 +27,17 @@ const Manage_service = () => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/services/${id}`, {
-                    method: "DELETE",
-                })
+                fetch(
+                    `https://education-server-eight.vercel.app/services/${id}`,
+                    {
+                        method: "DELETE",
+                    }
+                )
                     .then((res) => res.json())
                     .then((data) => {
-                        const remaining = serviceData.filter(x=> x._id !== id);
+                        const remaining = serviceData.filter(
+                            (x) => x._id !== id
+                        );
                         setServiceData(remaining);
                         if (data.deletedCount > 0) {
                             Swal.fire({
@@ -39,12 +46,11 @@ const Manage_service = () => {
                                 icon: "success",
                             });
                         }
-
                     });
             }
         });
     };
-   
+
     return (
         <div>
             <Helmet>
@@ -63,9 +69,13 @@ const Manage_service = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {
-                            serviceData.map(data => <ManageData key={data._id} data={data} handleDelete={handleDelete}></ManageData>)
-                        }
+                        {serviceData.map((data) => (
+                            <ManageData
+                                key={data._id}
+                                data={data}
+                                handleDelete={handleDelete}
+                            ></ManageData>
+                        ))}
                     </tbody>
                 </table>
             </div>

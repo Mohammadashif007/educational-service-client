@@ -11,7 +11,9 @@ const Booked_services = () => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:3000/bookings?email=${user?.email}`)
+            .get(
+                `https://education-server-eight.vercel.app/bookings?email=${user?.email}`
+            )
             .then((res) => setBookings(res.data));
     }, []);
 
@@ -55,7 +57,22 @@ const Booked_services = () => {
                                         <td>{x.service_id}</td>
                                         <td>{x.service_date}</td>
                                         <th>
-                                          <span className={`bg-${x.status === "pending"? "orange-500": x.status ==="working"? "sky-500": "green-500"} text-white px-5 py-2 rounded-full`}> {x.status ? x.status : <span>Pending</span> }</span>
+                                            <span
+                                                className={`bg-${
+                                                    x.status === "pending"
+                                                        ? "orange-500"
+                                                        : x.status === "working"
+                                                        ? "sky-500"
+                                                        : "green-500"
+                                                } text-white px-5 py-2 rounded-full`}
+                                            >
+                                                {" "}
+                                                {x.status ? (
+                                                    x.status
+                                                ) : (
+                                                    <span>Pending</span>
+                                                )}
+                                            </span>
                                         </th>
                                     </tr>
                                 ))}

@@ -22,7 +22,10 @@ const Add_service = () => {
             instructor_image: user.photoURL,
         };
         axios
-            .post("http://localhost:3000/services", formData)
+            .post(
+                "https://education-server-eight.vercel.app/services",
+                formData
+            )
             .then((res) => {
                 if (res.data.insertedId) {
                     reset();

@@ -14,27 +14,28 @@ const All_services_page = () => {
     const [searchKey, setSearchKey] = useState("");
 
     useEffect(() => {
-        fetch("http://localhost:3000/services")
+        fetch("https://education-server-eight.vercel.app/services")
             .then((res) => res.json())
             .then((data) => {
-                setCourses(data), 
-                setFilteredCourses(data);
+                setCourses(data), setFilteredCourses(data);
             });
     }, []);
 
-
-
-    const handleSearchKey = e => {
+    const handleSearchKey = (e) => {
         const searchKey = e.target.value.toLowerCase();
         setSearchKey(searchKey);
-        const searchedCourse = courses.filter(course => course.name.toLowerCase().includes(searchKey));
+        const searchedCourse = courses.filter((course) =>
+            course.name.toLowerCase().includes(searchKey)
+        );
         setFilteredCourses(searchedCourse);
-    }
+    };
 
     const handleSearch = () => {
-        const searchedCourse = courses.filter(course => course.name.toLowerCase().includes(searchKey));
+        const searchedCourse = courses.filter((course) =>
+            course.name.toLowerCase().includes(searchKey)
+        );
         setFilteredCourses(searchedCourse);
-    }
+    };
 
     return (
         <div className=" my-5 dark:text-white">

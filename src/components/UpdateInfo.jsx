@@ -14,7 +14,7 @@ const UpdateInfo = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        fetch(`http://localhost:3000/services/${_id}`, {
+        fetch(`https://education-server-eight.vercel.app/services/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",

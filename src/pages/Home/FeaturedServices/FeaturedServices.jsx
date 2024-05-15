@@ -5,7 +5,7 @@ import useLoadData from "../../../hooks/useLoadData";
 const FeaturedServices = () => {
     // const services = useLoadData();
 
-    const url = "http://localhost:3000/services";
+    const url = "https://education-server-eight.vercel.app/services";
     const { isPending, error, data: services } = useLoadData(url);
 
     if (isPending) {

@@ -11,8 +11,7 @@ import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import useLoadData from "../../../hooks/useLoadData";
 
 const Best_teacher = () => {
-
-    const url = "http://localhost:3000/teachers";
+    const url = "https://education-server-eight.vercel.app/teachers";
     const { isPending, error, data: teachers } = useLoadData(url);
 
     if (isPending) {

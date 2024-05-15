@@ -4,7 +4,7 @@
 //     const [data, setData] = useState([]);
 
 //     useEffect(()=> {
-//         let url = 'http://localhost:3000/services' ;
+//         let url = 'https://education-server-eight.vercel.app/services' ;
 //         if(email){
 //             url = url += `?email=${email}`
 //         }
@@ -23,8 +23,7 @@ import { useQuery } from "@tanstack/react-query";
 const useLoadData = (url) => {
     const { isPending, error, data } = useQuery({
         queryKey: [url], // Use the URL as the query key
-        queryFn: () =>
-            fetch(url).then((res) => res.json()),
+        queryFn: () => fetch(url).then((res) => res.json()),
     });
     return { isPending, error, data };
 };
