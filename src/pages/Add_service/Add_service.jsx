@@ -1,18 +1,17 @@
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 
 const Add_service = () => {
-    const {user} = useAuth();
- 
+    const { user } = useAuth();
+
     const {
         register,
         handleSubmit,
         reset,
         formState: { errors },
-        
     } = useForm();
 
     const onSubmit = (data) => {
@@ -20,27 +19,28 @@ const Add_service = () => {
             ...data,
             instructor_name: user.displayName,
             instructor_email: user.email,
-            instructor_image: user.photoURL
-        }
-        axios.post("http://localhost:3000/services", formData)
-        .then(res => {
-            if(res.data.insertedId){
-                reset();
-                Swal.fire({
-                    icon: "success",
-                    title: "Your service added successfully",
-                    showConfirmButton: false,
-                    timer: 1500
-                  });
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        })
+            instructor_image: user.photoURL,
+        };
+        axios
+            .post("http://localhost:3000/services", formData)
+            .then((res) => {
+                if (res.data.insertedId) {
+                    reset();
+                    Swal.fire({
+                        icon: "success",
+                        title: "Your service added successfully",
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
     return (
         <div className="bg-gray-100 min-h-screen flex justify-center items-center py-10 dark:bg-black  ">
-                        <Helmet>
+            <Helmet>
                 <title>Add Service</title>
             </Helmet>
             <div className="max-w-2xl w-full mx-4 bg-white p-6 rounded-lg shadow-md dark:border-2 dark:border-blue-950 dark:bg-black dark:text-white">

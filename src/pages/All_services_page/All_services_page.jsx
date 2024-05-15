@@ -22,9 +22,7 @@ const All_services_page = () => {
             });
     }, []);
 
-    // const handleSearch = () => {
 
-    // }
 
     const handleSearchKey = e => {
         const searchKey = e.target.value.toLowerCase();
@@ -39,7 +37,7 @@ const All_services_page = () => {
     }
 
     return (
-        <div className=" my-5">
+        <div className=" my-5 dark:text-white">
             <Helmet>
                 <title>All Services</title>
             </Helmet>

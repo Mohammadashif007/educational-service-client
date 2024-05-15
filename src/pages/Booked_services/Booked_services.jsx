@@ -55,7 +55,7 @@ const Booked_services = () => {
                                         <td>{x.service_id}</td>
                                         <td>{x.service_date}</td>
                                         <th>
-                                          <span className={`bg-${x.status === "pending"? "orange-500": x.status ==="working"? "sky-500": "green-500"} text-white px-5 py-2 rounded-full`}> {x.status}</span>
+                                          <span className={`bg-${x.status === "pending"? "orange-500": x.status ==="working"? "sky-500": "green-500"} text-white px-5 py-2 rounded-full`}> {x.status ? x.status : <span>Pending</span> }</span>
                                         </th>
                                     </tr>
                                 ))}
@@ -64,7 +64,8 @@ const Booked_services = () => {
                     </div>
                 </div>
             ) : (
-                <div className="flex justify-center items-center my-10">
+                <div className="flex flex-col justify-center items-center my-10">
+                    {/* <p className="text-4xl font-extrabold">Card is empty</p> */}
                     <img src={empty} alt="" />
                 </div>
             )}

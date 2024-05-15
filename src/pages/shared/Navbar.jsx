@@ -38,7 +38,7 @@ const Navbar = () => {
     //! handle dark light mode
     const handleThemeSwitch = () => {
         setTheme(theme === "dark"? "light":"dark");
-        console.log(theme);
+        
     }
 
 
