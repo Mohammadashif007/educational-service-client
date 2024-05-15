@@ -38,12 +38,12 @@ const Add_service = () => {
         })
     };
     return (
-        <div className="bg-gray-100 min-h-screen flex justify-center items-center py-10">
-            <div className="max-w-2xl w-full mx-4 bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-gray-100 min-h-screen flex justify-center items-center py-10 dark:bg-black  ">
+            <div className="max-w-2xl w-full mx-4 bg-white p-6 rounded-lg shadow-md dark:border-2 dark:border-blue-950 dark:bg-black dark:text-white">
                 <h2 className="text-3xl font-bold mb-10 text-center">
                     Add Your Service
                 </h2>
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 ">
                     <div className="flex justify-center items-center gap-5">
                         <div className="w-full">
                             <label className="block font-semibold">
@@ -126,7 +126,7 @@ const Add_service = () => {
                         <textarea
                             id="description"
                             {...register("description", { required: true })}
-                            className="form-textarea mt-1 w-full border-2 py-2 rounded-lg px-3"
+                            className="form-textarea mt-1 w-full border-2 py-2 rounded-lg px-3 dark:text-gray-900"
                             rows="4"
                         ></textarea>
                         {errors.description && (

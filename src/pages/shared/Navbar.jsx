@@ -43,7 +43,7 @@ const Navbar = () => {
 
 
     const dashboardDropdown = (
-        <ul className="p-2 font-semibold w-[200px]">
+        <ul className="p-2 font-semibold w-[200px] dark:bg-blue-950 dark:text-white">
             <li>
                 <NavLink to="/add_service">Add Service</NavLink>
             </li>
@@ -60,7 +60,7 @@ const Navbar = () => {
     );
 
     return (
-        <div className="dark:bg-black navbar bg-base-100 fixed z-50">
+        <div className="dark:bg-blue-950 dark:text-white navbar bg-base-100 fixed z-50">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div
@@ -101,7 +101,7 @@ const Navbar = () => {
                         </li>
                     </ul>
                 </div>
-                <Link to="/" className="font-extrabold text-3xl text-[#124076]">
+                <Link to="/" className="font-extrabold text-3xl text-[#124076] dark:text-white">
                     Educator.org
                 </Link>
             </div>

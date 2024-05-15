@@ -9,7 +9,8 @@ import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 
 const Registration = () => {
-    const { createUser, loginWithGoogle, updateUser } = useContext(AuthContext);
+    const { createUser, loginWithGoogle, updateUser, logOut } =
+        useContext(AuthContext);
     const navigate = useNavigate();
     const notify = () => toast.success("Account Create successfully");
 
@@ -25,15 +26,20 @@ const Registration = () => {
         console.log(data);
         createUser(data.email, data.password)
             .then((res) => {
-                const result = res.user;
-                console.log(result);
+                logOut()
+                    .then(() => {
+                        setTimeout(() => {
+                            navigate("/login");
+                        }, 2000);
+                    })
+                    .catch((err) => {
+                        console.log(err.message);
+                    });
                 updateUser(data.name, data.photoURL)
-                .then(() => {
-                    
-                })
-                .catch(err => {
-                    console.log(err.message);
-                })
+                    .then(() => {})
+                    .catch((err) => {
+                        console.log(err.message);
+                    });
 
                 notify();
                 reset();
@@ -49,7 +55,7 @@ const Registration = () => {
                 const result = res.user;
                 console.log(result);
                 notify();
-                navigate("/")
+                navigate("/");
             })
             .catch((err) => {
                 console.log(err.message);
@@ -57,27 +63,29 @@ const Registration = () => {
     };
 
     return (
-        <div className=" min-h-screen bg-base-200 p-10 md:flex justify-center items-center gap-28">
+        <div className=" min-h-screen bg-base-200 p-10 md:flex justify-center items-center gap-28 dark:text-white dark:bg-black">
             <Helmet>
                 <title>Registration</title>
             </Helmet>
             <div className="mb-10 ">
                 <Lottie className="" animationData={registrationImage}></Lottie>
             </div>
-            <div className=" w-full max-w-sm shadow-2xl  rounded-lg">
+            <div className=" w-full max-w-sm shadow-2xl  rounded-lg dark:border-2 dark:border-blue-950">
                 <p className="text-3xl font-bold text-center">
                     Please Registration Here
                 </p>
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-bold">Name</span>
+                            <span className="label-text font-bold dark:text-white">
+                                Name
+                            </span>
                         </label>
                         <input
                             type="text"
                             placeholder="Name"
                             {...register("name", { required: true })}
-                            className="input input-bordered"
+                            className="input input-bordered text-gray-600"
                         />
                         {errors.name && (
                             <span className="text-red-500">
@@ -87,13 +95,15 @@ const Registration = () => {
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-bold">Email</span>
+                            <span className="label-text font-bold dark:text-white">
+                                Email
+                            </span>
                         </label>
                         <input
                             type="email"
                             placeholder="Email"
                             {...register("email", { required: true })}
-                            className="input input-bordered"
+                            className="input input-bordered text-gray-600"
                         />
                         {errors.email && (
                             <span className="text-red-500">
@@ -103,7 +113,7 @@ const Registration = () => {
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-bold">
+                            <span className="label-text font-bold dark:text-white">
                                 Password
                             </span>
                         </label>
@@ -119,18 +129,21 @@ const Registration = () => {
                                 },
                                 pattern: {
                                     value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/,
-                                    message: "Password must have one uppercase, one lowercase and one number"
-                                }
+                                    message:
+                                        "Password must have one uppercase, one lowercase and one number",
+                                },
                             })}
-                            className="input input-bordered"
+                            className="input input-bordered text-gray-700"
                         />
                         {errors.password && (
-                            <span className="text-red-500">{errors.password.message}</span>
+                            <span className="text-red-500">
+                                {errors.password.message}
+                            </span>
                         )}
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-bold">
+                            <span className="label-text font-bold dark:text-white">
                                 Photo URL
                             </span>
                         </label>
@@ -138,7 +151,7 @@ const Registration = () => {
                             type="text"
                             placeholder="Photo URL"
                             {...register("photoURL", { required: true })}
-                            className="input input-bordered"
+                            className="input input-bordered text-gray-600"
                         />
                         {errors.photoURL && (
                             <span className="text-red-500">

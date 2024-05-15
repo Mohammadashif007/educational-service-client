@@ -13,7 +13,7 @@ const Multimedia_section = () => {
     };
     const videoId = "7cEpNIjMO7c";
     return (
-        <div className="flex justify-center items-center w-4/5 mx-auto my-10">
+        <div className="flex justify-center items-center w-4/5 mx-auto my-10 dark:bg-black dark:text-white">
             <div>
                 <h1 className="text-3xl font-extrabold text-[#124076]">
                     Build your Career To Share Your Knowledge.

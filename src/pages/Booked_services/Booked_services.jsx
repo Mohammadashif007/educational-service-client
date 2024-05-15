@@ -7,24 +7,26 @@ import { useEffect, useState } from "react";
 const Booked_services = () => {
     const [bookings, setBookings] = useState([]);
     const { user } = useAuth();
+    console.log(bookings);
 
     useEffect(() => {
         axios
             .get(`http://localhost:3000/bookings?email=${user?.email}`)
             .then((res) => setBookings(res.data));
     }, []);
+
     return (
         <div>
             <Helmet>
                 <title>Booked Service</title>
             </Helmet>
             {bookings && bookings.length ? (
-                <div className="px-10 my-10">
+                <div className="px-10 my-10 dark:bg-black dark:text-white">
                     <div className="overflow-x-auto">
                         <table className="table">
                             {/* head */}
                             <thead>
-                                <tr className="font-semibold text-[16px] text-black">
+                                <tr className="font-semibold text-[16px] text-black dark:text-white">
                                     <th>Images</th>
                                     <th>Name</th>
                                     <th>Service id</th>
@@ -53,9 +55,7 @@ const Booked_services = () => {
                                         <td>{x.service_id}</td>
                                         <td>{x.service_date}</td>
                                         <th>
-                                            <button className="btn btn-ghost btn-xs">
-                                                details
-                                            </button>
+                                          <span className={`bg-${x.status === "pending"? "orange-500": x.status ==="working"? "sky-500": "green-500"} text-white px-5 py-2 rounded-full`}> {x.status}</span>
                                         </th>
                                     </tr>
                                 ))}

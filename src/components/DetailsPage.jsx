@@ -18,7 +18,7 @@ const DetailsPage = () => {
 
 
     return (
-        <div className="flex justify-center items-end gap-5 my-10 w-4/5 mx-auto">
+        <div className="flex justify-center items-end gap-5 my-10 w-4/5 mx-auto dark:text-white">
             <Helmet>
                 <title>Service Details</title>
             </Helmet>

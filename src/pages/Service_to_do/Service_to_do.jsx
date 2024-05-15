@@ -1,16 +1,17 @@
-
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import empty from "../../assets/shopping/shopping.png";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 
 const Service_to_do = () => {
+    const { user } = useAuth();
     const [allBookedService, setAllBookedService] = useState([]);
 
     useEffect(() => {
-        axios("http://localhost:3000/bookings").then((res) =>
-            setAllBookedService(res.data)
+        axios(`http://localhost:3000/bookings?email=${user?.email}`).then(
+            (res) => setAllBookedService(res.data)
         );
     }, []);
 
@@ -27,7 +28,9 @@ const Service_to_do = () => {
             .then((data) => {
                 if (data.modifiedCount > 0) {
                     const updatedServices = allBookedService.map((service) =>
-                        service._id === id ? { ...service, status: newStatus } : service
+                        service._id === id
+                            ? { ...service, status: newStatus }
+                            : service
                     );
                     setAllBookedService(updatedServices);
                     Swal.fire({
@@ -49,7 +52,7 @@ const Service_to_do = () => {
     };
 
     return (
-        <div className="w-4/5 mx-auto">
+        <div className="w-4/5 mx-auto dark:bg-black dark:text-white">
             <Helmet>
                 <title>Service to do</title>
             </Helmet>
@@ -74,7 +77,9 @@ const Service_to_do = () => {
                                                 <div className="avatar">
                                                     <div className="w-[100px] h-[100px] rounded-md">
                                                         <img
-                                                            src={x.service_image_URL}
+                                                            src={
+                                                                x.service_image_URL
+                                                            }
                                                             alt="img"
                                                         />
                                                     </div>
@@ -86,14 +91,29 @@ const Service_to_do = () => {
                                         <td>{x.service_date}</td>
                                         <th>
                                             <details className="dropdown">
-                                                <summary className={`bg-${x.status === 'working' ? 'sky' : 'green'}-500 text-white rounded-md px-7 py-3 cursor-pointer`}>
+                                                <summary
+                                                    className={`bg-${
+                                                        x.status === "working"
+                                                            ? "sky"
+                                                            : "green"
+                                                    }-500 text-white rounded-md px-7 py-3 cursor-pointer`}
+                                                >
                                                     {/* <span>{x.status.charAt(0).toUpperCase() + x.status.slice(1)}</span> */}
-                                                    {x.status?<span>{x.status}</span>:<span className="">Pending</span>}
+                                                    {x.status ? (
+                                                        <span>{x.status}</span>
+                                                    ) : (
+                                                        <span className="">
+                                                            Pending
+                                                        </span>
+                                                    )}
                                                 </summary>
                                                 <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box">
                                                     <li
                                                         onClick={() =>
-                                                            handleBookingStateChange(x._id, 'pending')
+                                                            handleBookingStateChange(
+                                                                x._id,
+                                                                "pending"
+                                                            )
                                                         }
                                                         className="bg-orange-500 text-white rounded-md mt-2"
                                                     >
@@ -101,7 +121,10 @@ const Service_to_do = () => {
                                                     </li>
                                                     <li
                                                         onClick={() =>
-                                                            handleBookingStateChange(x._id, 'working')
+                                                            handleBookingStateChange(
+                                                                x._id,
+                                                                "working"
+                                                            )
                                                         }
                                                         className="bg-sky-500 text-white rounded-md mt-2"
                                                     >
@@ -109,7 +132,10 @@ const Service_to_do = () => {
                                                     </li>
                                                     <li
                                                         onClick={() =>
-                                                            handleBookingStateChange(x._id, 'completed')
+                                                            handleBookingStateChange(
+                                                                x._id,
+                                                                "completed"
+                                                            )
                                                         }
                                                         className="bg-green-500 text-white rounded-md mt-2"
                                                     >

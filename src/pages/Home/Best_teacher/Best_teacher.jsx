@@ -19,7 +19,7 @@ const Best_teacher = () => {
     }, []);
 
     return (
-        <div className="w-4/5 mx-auto my-20">
+        <div className="w-4/5 mx-auto my-20 dark:bg-black dark:text-white">
             <div className="text-center font-bold text-5xl my-8">
                 Our Best Teacher
             </div>

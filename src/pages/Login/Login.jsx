@@ -49,21 +49,21 @@ const Login = () => {
     };
 
     return (
-        <div className=" min-h-screen bg-base-200 p-10 md:flex justify-center items-center gap-28">
+        <div className=" min-h-screen bg-base-200 p-10 md:flex justify-center items-center gap-28 dark:bg-black dark:text-white">
             <Helmet>
                 <title>Login</title>
             </Helmet>
             <div className="mb-10">
                 <Lottie animationData={loginImage}></Lottie>
             </div>
-            <div className=" w-full max-w-sm shadow-2xl  rounded-lg">
+            <div className=" w-full max-w-sm shadow-2xl  rounded-lg dark:border-2 dark:border-blue-950">
                 <p className="text-3xl font-bold text-center p-3">
                     Please Login
                 </p>
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-                    <div className="form-control">
+                    <div className="form-control ">
                         <label className="label">
-                            <span className="label-text font-bold">Email</span>
+                            <span className="label-text font-bold dark:text-white">Email</span>
                         </label>
                         <input
                             type="email"
@@ -71,7 +71,7 @@ const Login = () => {
                             {...register("email", {
                                 required: "Please enter your email",
                             })}
-                            className="input input-bordered"
+                            className="input input-bordered text-gray-600"
                         />
                         {errors.email && (
                             <span className="text-red-600 mt-2 font-semibold">
@@ -80,8 +80,8 @@ const Login = () => {
                         )}
                     </div>
                     <div className="form-control">
-                        <label className="label">
-                            <span className="label-text font-bold">
+                        <label className="label ">
+                            <span className="label-text font-bold dark:text-white">
                                 Password
                             </span>
                         </label>
@@ -91,7 +91,7 @@ const Login = () => {
                             {...register("password", {
                                 required: "Please enter your password",
                             })}
-                            className="input input-bordered"
+                            className="input input-bordered text-gray-600"
                         />
                         {errors.password && (
                             <span className="text-red-600 mt-2 font-semibold">

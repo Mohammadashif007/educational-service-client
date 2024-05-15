@@ -1,6 +1,5 @@
 import CommonBanner from "../../components/CommonBanner";
 import ItemCard from "../../components/ItemCard";
-import useLoadData from "../../hooks/useLoadData";
 import allCoursesBannerImg from "../../assets/commonBanner/b.jpg";
 import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
