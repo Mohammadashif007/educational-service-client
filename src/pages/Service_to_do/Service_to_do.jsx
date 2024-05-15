@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import empty from "../../assets/shopping/shopping.png";
 import Swal from "sweetalert2";
-import useAuth from "../../hooks/useAuth";
+// import useAuth from "../../hooks/useAuth";
 
 const Service_to_do = () => {
-    const { user } = useAuth();
+    // const { user } = useAuth();
     const [allBookedService, setAllBookedService] = useState([]);
 
     useEffect(() => {
-        axios(`http://localhost:3000/bookings?email=${user?.email}`).then(
+        axios(`http://localhost:3000/bookings`).then(
             (res) => setAllBookedService(res.data)
         );
     }, []);
