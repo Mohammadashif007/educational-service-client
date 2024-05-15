@@ -70,11 +70,11 @@ const Registration = () => {
             <div className="mb-10 ">
                 <Lottie className="" animationData={registrationImage}></Lottie>
             </div>
-            <div className=" w-full max-w-sm shadow-2xl  rounded-lg dark:border-2 dark:border-blue-950">
+            <div className=" w-full max-w-sm shadow-2xl  rounded-lg dark:border-2 dark:border-blue-950 p-8">
                 <p className="text-3xl font-bold text-center">
                     Please Registration Here
                 </p>
-                <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                <form onSubmit={handleSubmit(onSubmit)} className="">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text font-bold dark:text-white">
@@ -164,17 +164,17 @@ const Registration = () => {
                             Registration
                         </button>
                     </div>
-                    <div className="form-control">
-                        <button
-                            onClick={handleGoogleLogin}
-                            className=" px-5 py-3 rounded-lg bg-[#124076] text-white flex justify-center items-center gap-2"
-                        >
-                            <FaGoogle className="text-2xl" />
-                            <div>Google</div>
-                        </button>
-                    </div>
                 </form>
-                <p className="font-bold pb-5 mx-9">
+                <div className="form-control mt-4">
+                    <button
+                        onClick={handleGoogleLogin}
+                        className=" px-5 py-3 rounded-lg bg-[#124076] text-white flex justify-center items-center gap-2"
+                    >
+                        <FaGoogle className="text-2xl" />
+                        <div>Google</div>
+                    </button>
+                </div>
+                <p className="font-bold pb-5 mx-2 mt-3">
                     Already have an account ? Please{" "}
                     <span className="text-[#124076] cursor-pointer">
                         <Link to="/login">Login</Link>

@@ -56,11 +56,11 @@ const Login = () => {
             <div className="mb-10">
                 <Lottie animationData={loginImage}></Lottie>
             </div>
-            <div className=" w-full max-w-sm shadow-2xl  rounded-lg dark:border-2 dark:border-blue-950">
+            <div className=" w-full max-w-sm shadow-2xl  rounded-lg dark:border-2 dark:border-blue-950 p-8">
                 <p className="text-3xl font-bold text-center p-3">
                     Please Login
                 </p>
-                <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                <form onSubmit={handleSubmit(onSubmit)} className="">
                     <div className="form-control ">
                         <label className="label">
                             <span className="label-text font-bold dark:text-white">Email</span>
@@ -105,7 +105,7 @@ const Login = () => {
                         </button>
                     </div>
                 </form>
-                <div className="form-control w-5/6 mx-auto mb-3">
+                <div className="form-control mt-4">
                     <button
                         onClick={handleGoogleLogin}
                         className=" px-5 py-3 rounded-lg bg-[#124076] text-white flex justify-center items-center gap-2"
@@ -114,7 +114,7 @@ const Login = () => {
                         <div>Google</div>
                     </button>
                 </div>
-                <p className="font-bold pb-5 mx-9">
+                <p className="font-bold pb-5 mx-3 mt-3">
                     New here ? Please{" "}
                     <span className="text-[#124076] cursor-pointer">
                         <Link to="/registration">Registration</Link>

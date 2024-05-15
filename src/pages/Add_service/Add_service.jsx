@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import Swal from 'sweetalert2';
+import { Helmet } from "react-helmet-async";
 
 const Add_service = () => {
     const {user} = useAuth();
@@ -39,6 +40,9 @@ const Add_service = () => {
     };
     return (
         <div className="bg-gray-100 min-h-screen flex justify-center items-center py-10 dark:bg-black  ">
+                        <Helmet>
+                <title>Add Service</title>
+            </Helmet>
             <div className="max-w-2xl w-full mx-4 bg-white p-6 rounded-lg shadow-md dark:border-2 dark:border-blue-950 dark:bg-black dark:text-white">
                 <h2 className="text-3xl font-bold mb-10 text-center">
                     Add Your Service
